@@ -16,6 +16,34 @@ data.forEach((sighting) => {
   });
 
 
-// Event listener for date entered in form
+// Event listener for form
 
-// Filter sighting data by datetime
+// Select the button
+var button = d3.select("#filter-btn");
+
+// Select the form
+var form = d3.select(".filter");
+
+// Create event handlers for clicking the button or pressing the enter key
+button.on("click", runFilter);
+form.on("submit",runFilter);
+
+// Create the function to run for both events
+function runFilter() {
+
+  // Prevent the page from refreshing
+  d3.event.preventDefault();
+
+  // Select the input element and get the raw HTML node
+  var inputElement = d3.select("#datetime");
+
+  // Get the value property of the input element
+  var inputValue = inputElement.property("value");
+
+  // Print the value to the console
+  console.log(inputValue);
+
+};
+
+
+// Filter sighting data by datetime 
